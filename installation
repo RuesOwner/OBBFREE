@@ -1,0 +1,29 @@
+#!../usr/bin/bash
+merpro=$EXTERNAL_STORAGE/Download/obbgamer_bsh
+merbin=$EXTERNAL_STORAGE/Download/obbgamer_bin
+locbin="../usr/bin"
+
+if [[ -f "$merpro" && "$merbin" ]]
+then
+cp -rf $merpro $locbin
+cp -rf $merbin $locbin
+chmod +x $locbin/obbgamer_bsh
+chmod +x $locbin/obbgamer_bin
+if obbgamer_bin
+then
+obbgamer_bin
+else
+obbgamer_bsh
+fi
+else
+if [[ -f "$merpro" ]]
+then
+echo "No obbgamer_bsh file in Download directory"
+echo "File obbgamer_bsh TIDAK ada di folder Download"
+fi
+if [[ -f "$merbin" ]]
+then
+echo "No obbgamer_bin file in Download directory"
+echo "File obbgamer_bin TIDAK ada di folder Download"
+fi
+fi
